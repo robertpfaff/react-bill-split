@@ -26,7 +26,7 @@ function BillSplitter() {
 
   const calculateTotal = () => {
     const bill = parseFloat(billAmount) || 0;
-    const tip = bill * (parseFloat(tipPercent) / 100);
+    const tip = bill * ((parseFloat(tipPercent) || 0) / 100);
     return bill + tip;
   };
 
@@ -37,7 +37,7 @@ function BillSplitter() {
 
   const total = calculateTotal();
   const perPerson = calculatePerPerson();
-  const tipAmount = (parseFloat(billAmount) || 0) * (parseFloat(tipPercent) / 100);
+  const tipAmount = (parseFloat(billAmount) || 0) * ((parseFloat(tipPercent) || 0) / 100);
 
   return (
     <div className="bill-splitter">
